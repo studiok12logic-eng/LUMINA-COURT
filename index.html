@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMINA COURT | 新しい分譲マンション</title>
+    <title>LUMINA COURT | 春の邸宅</title>
     <!-- Google Fonts: Zen Old Mincho for Luxury Feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,10 +27,8 @@
 
         body {
             font-family: "Zen Old Mincho", serif;
-            background-color: #0a0a0a;
-            background-image: radial-gradient(ellipse at top, #2a2a2a 0%, #0a0a0a 70%);
-            background-attachment: fixed;
-            color: #f0f0f0;
+            background-color: #ffffff;
+            color: #4a4a4a;
             overflow-x: hidden;
         }
 
@@ -91,17 +89,19 @@
             font-weight: 500;
             position: relative;
             z-index: 2;
-            
-            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+
+            /* Pink/Gold Gradient */
+            background: linear-gradient(to right, #d4af37, #f8c8dc, #e0aa3e);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            /* Softer shadow */
+            text-shadow: 0 2px 4px rgba(255, 192, 203, 0.3);
         }
 
         p {
             font-size: 1.05rem;
-            color: #ccc;
+            color: #666;
             line-height: 2;
         }
 
@@ -113,11 +113,12 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.6));
+            background: rgba(255, 255, 255, 0.9);
             z-index: 1000;
             transition: .4s;
             backdrop-filter: blur(5px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         header .container {
@@ -130,7 +131,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #fff;
+            color: #333;
             letter-spacing: 0.1em;
             flex-shrink: 0;
         }
@@ -150,9 +151,9 @@
             font-size: 0.75rem !important;
             padding: 8px 16px !important;
             border: 1px solid #d4af37;
-            background: rgba(0,0,0,0.5);
+            background: #fff;
             color: #d4af37;
-            
+
             /* Updated for Shine Effect */
             position: relative;
             overflow: hidden; /* Contains the shine */
@@ -166,16 +167,16 @@
             left: -100%;
             width: 50%;
             height: 100%;
-            /* Goldish transparent gradient */
-            background: linear-gradient(to right, transparent 0%, rgba(212, 175, 55, 0.6) 80%, transparent 100%);
+            /* Pinkish gold transparent gradient */
+            background: linear-gradient(to right, transparent 0%, rgba(255, 192, 203, 0.6) 80%, transparent 100%);
             transform: skewX(-25deg);
             pointer-events: none;
             animation: gold-shine 2s infinite ease-in-out;
         }
 
         .header-btn:hover {
-            background: #d4af37;
-            color: #000;
+            background: #fdf5f7; /* Very light pink hover */
+            color: #b08d2b;
         }
 
         nav ul {
@@ -189,7 +190,7 @@
         }
 
         nav a {
-            color: #fff;
+            color: #555;
             font-size: 0.9rem;
             letter-spacing: 0.1em;
         }
@@ -210,9 +211,9 @@
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            
-            background-color: #d4af37;
-            color: #000;
+
+            background-color: #ffb7b2; /* Soft pink */
+            color: #fff;
             font-size: 0.6rem;
             font-weight: bold;
             padding: 2px 6px;
@@ -221,7 +222,7 @@
             line-height: 1;
             white-space: nowrap;
             pointer-events: none;
-            
+
             /* Updated for Shine Effect */
             overflow: hidden;
         }
@@ -234,7 +235,7 @@
             left: -100%;
             width: 50%;
             height: 100%;
-            /* White/Bright Gold shine for contrast on gold background */
+            /* White shine */
             background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
             transform: skewX(-25deg);
             pointer-events: none;
@@ -271,8 +272,8 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            z-index: 20; 
-            background-color: #000;
+            z-index: 20;
+            background-color: #fcefe9; /* Light pinkish bg fallback */
         }
 
         .video-slider {
@@ -283,7 +284,7 @@
             height: 100%;
         }
 
-        .video-slider img, 
+        .video-slider img,
         .video-slider video {
             position: absolute;
             top: 0;
@@ -303,6 +304,7 @@
             transition: opacity 2s ease-in-out, transform 6s linear;
         }
 
+        /* Lighter overlay for Hero */
         .video-slider::after {
             content: '';
             position: absolute;
@@ -310,7 +312,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.4);
+            background: rgba(255, 240, 245, 0.1); /* Very subtle pink tint */
+            background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.1) 100%);
         }
 
         .hero-text {
@@ -321,7 +324,9 @@
         .hero-text h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            /* White text with soft shadow for readability */
+            color: #fff;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
             letter-spacing: 0.2em;
             font-weight: 500;
         }
@@ -329,14 +334,14 @@
         .hero-text p {
             color: #fff;
             font-size: 1.2rem;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
             letter-spacing: 0.1em;
         }
 
         /* ==========================================================================
-           Snow Animation (White Circles)
+           Petal Animation (Cherry Blossoms)
            ========================================================================== */
-        #snow-container {
+        #petal-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -344,20 +349,19 @@
             height: 100%;
             pointer-events: none;
             overflow: hidden;
-            z-index: 10;
+            z-index: 15; /* Above background, below header */
         }
 
-        .snowflake {
+        .petal {
             position: absolute;
             top: -30px;
-            background-color: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            background-color: #ffc0cb; /* Pink */
+            border-radius: 150% 0 150% 0; /* Petal shape */
             opacity: 0.8;
             pointer-events: none;
-            animation-name: fall, sway;
-            animation-timing-function: linear, ease-in-out;
-            animation-iteration-count: infinite, infinite;
+            animation-name: fall, sway, rotate;
+            animation-timing-function: linear, ease-in-out, ease-in-out;
+            animation-iteration-count: infinite, infinite, infinite;
         }
 
         @keyframes fall {
@@ -367,8 +371,13 @@
 
         @keyframes sway {
             0% { transform: translateX(0); }
-            50% { transform: translateX(20px); }
+            50% { transform: translateX(25px); }
             100% { transform: translateX(0); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* ==========================================================================
@@ -385,7 +394,8 @@
         .concept-content .img-wrapper {
             width: 50%;
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: 8px; /* Softer corners */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .concept-content img {
@@ -404,18 +414,18 @@
             font-size: 1.8rem;
             margin-bottom: 30px;
             line-height: 1.5;
-            color: #fff;
-            border-left: 3px solid #d4af37;
+            color: #333;
+            border-left: 3px solid #ffb7b2; /* Pink border */
             padding-left: 20px;
         }
 
         .concept-text p {
             text-align: left;
-            color: #aaa;
+            color: #666;
         }
 
         /* ==========================================================================
-           Features Section & Trapezoid Curtain Animation
+           Features Section & Curtain Animation
            ========================================================================== */
         #features {
             background-image: url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop");
@@ -426,13 +436,25 @@
             overflow: hidden;
         }
 
-        /* Curtain Styles */
+        /* White overlay to lighten the features background */
+        #features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: 1;
+        }
+
+        /* Curtain Styles - Changed to White/Pink */
         .curtain-left, .curtain-right {
             position: absolute;
             top: 0;
             bottom: 0;
             width: 120%; /* Wide enough cover */
-            background: rgba(10, 10, 10, 0.4); 
+            background: #fff0f5; /* Lavender Blush */
             z-index: 10;
             transition: transform 2.0s cubic-bezier(0.22, 1, 0.36, 1);
         }
@@ -492,18 +514,21 @@
         }
 
         .feature-card {
-            background-color: rgba(30, 30, 30, 0.6);
+            background-color: #fff;
             padding: 0;
-            border-radius: 4px;
+            border-radius: 8px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #fafafa;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            border-color: #d4af37;
+            box-shadow: 0 20px 40px rgba(255, 192, 203, 0.2);
+            border-color: #ffb7b2;
         }
 
         .feature-card .img-wrapper {
@@ -526,13 +551,14 @@
         .feature-card h3 {
             font-size: 1.3rem;
             margin: 20px 20px 10px;
-            color: #fff;
+            color: #333;
         }
 
         .feature-card p {
             padding: 0 20px 20px;
             font-size: 0.9rem;
             text-align: left;
+            color: #666;
         }
 
         /* ==========================================================================
@@ -546,19 +572,20 @@
 
         .plan-card {
             background-color: #fff;
-            border-radius: 4px;
+            border-radius: 8px;
             overflow: hidden;
             color: #1a1a1a;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             /* New: Ensure card is relative to stack within container context */
             position: relative;
             /* Updated: Z-Index increased to be above snow (z:10) */
             z-index: 30;
+            border: 1px solid #eee;
         }
 
         .plan-card .img-wrapper {
             padding: 40px;
-            background: #f9f9f9;
+            background: #fffbfb;
             display: flex;
             justify-content: center;
         }
@@ -572,19 +599,19 @@
         .plan-info {
             padding: 30px;
             background-color: #fff;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #f0f0f0;
         }
 
         .plan-info h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: #1a1a1a;
+            color: #333;
         }
 
         .plan-info p {
             text-align: left;
-            color: #555;
-            border-bottom: 1px solid #eee;
+            color: #666;
+            border-bottom: 1px solid #f0f0f0;
             padding: 8px 0;
         }
 
@@ -605,7 +632,7 @@
             position: relative;
             text-align: center;
         }
-        
+
         #contact::before {
             content: '';
             position: absolute;
@@ -613,13 +640,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(255, 255, 255, 0.85); /* Light overlay */
             z-index: 1;
         }
 
         #contact .container {
             position: relative;
             z-index: 10;
+        }
+
+        #contact p {
+            color: #555;
         }
 
         .contact-buttons {
@@ -632,15 +663,16 @@
         .btn {
             display: inline-block;
             padding: 18px 50px;
-            background-color: #d4af37;
-            color: #000;
+            background-color: #ffb7b2; /* Pink button */
+            color: #fff;
             text-decoration: none;
             font-weight: 600;
             letter-spacing: 0.1em;
-            border-radius: 2px;
+            border-radius: 4px;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 10px rgba(255, 183, 178, 0.4);
         }
 
         .btn::after {
@@ -660,16 +692,17 @@
 
         .btn:hover {
             background-color: #fff;
-            color: #d4af37;
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            color: #ffb7b2;
+            border: 1px solid #ffb7b2;
+            box-shadow: 0 10px 20px rgba(255, 183, 178, 0.3);
         }
 
         /* ==========================================================================
            Footer
            ========================================================================== */
         .footerWrap {
-            background-color: #f5f5f5;
-            color: #231815;
+            background-color: #fff0f5; /* Very light pink/white */
+            color: #4a4a4a;
             padding: 60px 0 20px;
             position: relative;
             z-index: 1000;
@@ -683,7 +716,7 @@
         }
 
         .sellerWrap h2 {
-            color: #231815;
+            color: #4a4a4a;
             font-size: 1rem;
             font-weight: 400;
             letter-spacing: 0.25em;
@@ -692,7 +725,6 @@
             -webkit-background-clip: unset;
             background-clip: unset;
             -webkit-text-fill-color: unset;
-            color: #231815;
         }
 
         .sellerInfomation_wrap {
@@ -717,12 +749,12 @@
             font-size: 0.95rem;
             font-weight: 600;
             margin-bottom: 10px;
-            color: #231815;
+            color: #333;
         }
 
         .sellerInfomation_inner p {
             font-size: 0.85rem;
-            color: #555;
+            color: #666;
             text-align: left;
             line-height: 1.8;
         }
@@ -732,25 +764,25 @@
             padding-bottom: 5px;
             display: inline-block;
         }
-        
+
         .phone-icon-svg {
             width: 24px;
             height: 24px;
-            fill: #231815;
+            fill: #333;
             vertical-align: middle;
             margin-right: 5px;
         }
 
         .smallWrap {
             text-align: center;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #e0e0e0;
             padding-top: 20px;
         }
 
         .smallWrap small {
             font-size: 0.75rem;
             letter-spacing: 0.1em;
-            color: #888;
+            color: #999;
         }
 
         /* ==========================================================================
@@ -796,7 +828,7 @@
             }
             h2 { font-size: 2.2rem; }
             .hero-text h1 { font-size: 2.5rem; }
-            
+
             .header-buttons { display: none; }
         }
 
@@ -822,7 +854,7 @@
     <header>
         <div class="container">
             <a href="#" class="logo">LUMINA COURT</a>
-            
+
             <div class="header-actions">
                 <nav>
                     <ul>
@@ -845,26 +877,26 @@
         </div>
     </header>
 
-    <!-- Snow Container -->
-    <div id="snow-container"></div>
+    <!-- Petal Container -->
+    <div id="petal-container"></div>
 
     <main>
         <!-- Hero Section -->
         <section id="hero">
             <div class="video-slider">
                 <!-- Video Slide (Added) -->
-                <video src="img\video3.mp4" muted playsinline class="active"></video>
+                <video src="img/video3.mp4" muted playsinline class="active"></video>
 
                 <!-- Image Slide -->
                 <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Evening View">
-                <video src="img\video1.mp4" muted playsinline></video>
+                <video src="img/video1.mp4" muted playsinline></video>
             </div>
             <div class="hero-text fade-up-stagger">
                 <h1>光と、風と、暮らす。</h1>
                 <p>都心にありながら、自然のやすらぎを感じるレジデンス。</p>
             </div>
         </section>
-<img src="img/2025-12-04 113659.png" style="width:100%;">
+
         <!-- Concept Section -->
         <section id="concept" class="container m_botom_20">
             <h2 class="fade-up">CONCEPT</h2>
@@ -1015,7 +1047,7 @@
 
     function playSlide(index) {
         const slide = slides[index];
-        
+
         // すべてのスライドから active を外して、現在のみ active に
         slides.forEach(s => s.classList.remove('active'));
         slide.classList.add('active');
@@ -1046,13 +1078,13 @@
         // 前の動画のイベントを削除（重要：これをしないと裏で動き続ける）
         const currentSlide = slides[currentIndex];
         if (currentSlide.tagName === 'VIDEO') {
-            currentSlide.onended = null; 
+            currentSlide.onended = null;
             currentSlide.pause();
         }
 
         // 次の番号へ（最後までいったら0に戻る）
         currentIndex = (currentIndex + 1) % slides.length;
-        
+
         // 次のスライドを再生
         playSlide(currentIndex);
     }
@@ -1061,8 +1093,8 @@
              * Intersection Observer for General Fade-up
              */
             const observerOptions = {
-                threshold: 0.15, 
-                rootMargin: "0px 0px -50px 0px" 
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
@@ -1089,12 +1121,12 @@
              * Triggers when the top of the features section hits 30% from top of screen.
              */
             const featuresSection = document.getElementById('features');
-            
+
             const featuresObserverOptions = {
                 root: null,
                 threshold: 0,
                 // Trigger line is 30% from top of viewport
-                rootMargin: "-35% 0px -35% 0px" 
+                rootMargin: "-35% 0px -35% 0px"
             };
 
             const featuresObserver = new IntersectionObserver((entries) => {
@@ -1102,12 +1134,12 @@
                     if (entry.isIntersecting) {
                         // Start curtain animation
                         featuresSection.classList.add('animate-active');
-                        
+
                         // Wait for curtain to close, then fade to semi-transparent and show content
                         // Adjusted timeout to show content faster (1.2s instead of 2.0s)
                         setTimeout(() => {
                             featuresSection.classList.add('animate-finished');
-                        }, 1200); 
+                        }, 1200);
 
                         featuresObserver.unobserve(entry.target);
                     }
@@ -1119,36 +1151,40 @@
             }
 
             /*
-             * Snow Animation Logic
-             * Generates snowflakes covering the screen
+             * Petal Animation Logic (Cherry Blossoms)
              */
-            const snowContainer = document.getElementById('snow-container');
-            const snowflakeCount = 60; 
+            const petalContainer = document.getElementById('petal-container');
+            const petalCount = 40;
 
-            if (snowContainer) {
-                for (let i = 0; i < snowflakeCount; i++) {
-                    createSnowflake();
+            if (petalContainer) {
+                for (let i = 0; i < petalCount; i++) {
+                    createPetal();
                 }
             }
 
-            function createSnowflake() {
-                const snowflake = document.createElement('div');
-                snowflake.classList.add('snowflake');
-                
+            function createPetal() {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+
                 // Randomize properties
-                const size = Math.random() * 5 + 2 + 'px'; 
+                const size = Math.random() * 10 + 10 + 'px'; // Larger for petals
                 const left = Math.random() * 100 + '%';
-                const duration = Math.random() * 15 + 10 + 's'; 
+                const duration = Math.random() * 10 + 8 + 's';
                 const delay = Math.random() * 5 + 's';
                 const swayDuration = Math.random() * 3 + 2 + 's';
+                const rotateDuration = Math.random() * 5 + 3 + 's';
 
-                snowflake.style.width = size;
-                snowflake.style.height = size;
-                snowflake.style.left = left;
-                snowflake.style.animationDuration = `${duration}, ${swayDuration}`;
-                snowflake.style.animationDelay = `${delay}, 0s`;
-                
-                snowContainer.appendChild(snowflake);
+                petal.style.width = size;
+                petal.style.height = size;
+                petal.style.left = left;
+
+                // Combine animations
+                // Name: fall, sway, rotate
+                // Duration: duration, swayDuration, rotateDuration
+                petal.style.animationDuration = `${duration}, ${swayDuration}, ${rotateDuration}`;
+                petal.style.animationDelay = `${delay}, 0s, 0s`;
+
+                petalContainer.appendChild(petal);
             }
         });
     </script>
