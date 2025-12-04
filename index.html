@@ -614,6 +614,71 @@
             padding: 8px 0;
         }
 
+        /* Plan Custom Styles */
+        .plan-area-block {
+            text-align: left;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .area-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0;
+            border-bottom: none !important;
+            padding: 0 !important;
+        }
+
+        .area-value {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: bold;
+            border-bottom: none !important;
+            padding: 0 !important;
+            line-height: 1.2;
+            margin-top: 5px;
+        }
+
+        .area-tsubo {
+            font-size: 0.8rem;
+            display: inline-block;
+            font-weight: normal;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .area-sqm {
+            vertical-align: middle;
+        }
+
+        .area-sqm .big-number {
+            font-size: 3.5rem; /* Make it big */
+            color: #d4af37; /* Match theme gold */
+            line-height: 1;
+            font-weight: 500;
+            vertical-align: bottom;
+        }
+
+        .balcony-area {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            border-bottom: none !important;
+        }
+
+        .plan-features p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            padding: 0 0 8px 0 !important;
+            border-bottom: 1px solid #fafafa !important;
+        }
+
+        .plan-features p:last-child {
+            border-bottom: none !important;
+            margin-bottom: 0;
+        }
+
         /* New: Explicit Z-Index for Plan Container to be above Snow (z:10) */
         #plan .container {
             position: relative;
@@ -954,22 +1019,50 @@
             <div class="plan-grid">
                 <div class="plan-card fade-up" data-delay="0">
                     <div class="img-wrapper">
-                        <img src="https://gp-takami-tower.com/images/planB/drawingB_base_0905.svg" alt="1LDK" onerror="this.src='https://placehold.co/400x300/f5f5f5/ccc?text=1LDK+Plan'">
+                        <img src="https://gp-takami-tower.com/images/planB/drawingB_base_0905.svg" alt="E type" onerror="this.src='https://placehold.co/400x300/f5f5f5/ccc?text=E+type+Plan'">
                     </div>
                     <div class="plan-info">
-                        <h3>1LDK</h3>
-                        <p>専有面積: 45.00㎡</p>
-                        <p>バルコニー面積: 10.00㎡</p>
+                        <h3>E type<br><span style="font-size: 0.8em; font-weight: normal;">3LDK+WIC+SIC+N</span></h3>
+
+                        <div class="plan-area-block">
+                            <p class="area-label">住居専有面積</p>
+                            <p class="area-value">
+                                <span class="area-tsubo">（約21.79坪）</span>
+                                <span class="area-sqm"><span class="big-number">72</span>.06㎡</span>
+                            </p>
+                        </div>
+
+                        <p class="balcony-area">バルコニー面積／16.79㎡</p>
+
+                        <div class="plan-features">
+                            <p>開放感あふれるワイドスパン設計、<br>通風採光と独立性に優れた南東角住戸</p>
+                            <p>シューズインクロゼットやウォークインクロゼット、<br>納戸など大型収納スペースが充実</p>
+                            <p>陽光と開放感あふれるワイドリビング</p>
+                        </div>
                     </div>
                 </div>
                 <div class="plan-card fade-up" data-delay="200">
                     <div class="img-wrapper">
-                         <img src="https://gp-takami-tower.com/images/planB/drawingB_base_0905.svg" alt="2LDK" onerror="this.src='https://placehold.co/400x300/f5f5f5/ccc?text=2LDK+Plan'">
+                         <img src="https://gp-takami-tower.com/images/planB/drawingB_base_0905.svg" alt="E type" onerror="this.src='https://placehold.co/400x300/f5f5f5/ccc?text=E+type+Plan'">
                     </div>
                     <div class="plan-info">
-                        <h3>2LDK</h3>
-                        <p>専有面積: 65.00㎡</p>
-                        <p>バルコニー面積: 15.00㎡</p>
+                        <h3>E type<br><span style="font-size: 0.8em; font-weight: normal;">3LDK+WIC+SIC+N</span></h3>
+
+                        <div class="plan-area-block">
+                            <p class="area-label">住居専有面積</p>
+                            <p class="area-value">
+                                <span class="area-tsubo">（約21.79坪）</span>
+                                <span class="area-sqm"><span class="big-number">72</span>.06㎡</span>
+                            </p>
+                        </div>
+
+                        <p class="balcony-area">バルコニー面積／16.79㎡</p>
+
+                        <div class="plan-features">
+                            <p>開放感あふれるワイドスパン設計、<br>通風採光と独立性に優れた南東角住戸</p>
+                            <p>シューズインクロゼットやウォークインクロゼット、<br>納戸など大型収納スペースが充実</p>
+                            <p>陽光と開放感あふれるワイドリビング</p>
+                        </div>
                     </div>
                 </div>
             </div>
