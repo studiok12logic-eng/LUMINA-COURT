@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONCEPT | LUMINA COURT</title>
+    <!-- Google Fonts: Zen Old Mincho for Luxury Feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        @charset "UTF-8";
+
+        /* ==========================================================================
+           Reset & Base Styles
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        body {
+            font-family: "Zen Old Mincho", serif;
+            background-color: #ffffff;
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        img, video {
+            width: 100%;
+            vertical-align: bottom;
+        }
+
+        ul, li {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .m_botom_20 { margin-bottom: 20px; }
+        .m_botom_60 { margin-bottom: 60px; }
+        .m_botom_100 { margin-bottom: 100px; }
+
+        .text-center { text-align: center; }
+
+        .under1400, .under450 { display: none; }
+
+        @media (max-width: 1400px) { .under1400 { display: inline; } }
+        @media (max-width: 450px) { .under450 { display: inline; } }
+
+        /* ==========================================================================
+           Typography & Shared Styles
+           ========================================================================== */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(to right, #d4af37, #f8c8dc, #e0aa3e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(255, 192, 203, 0.3);
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: #666;
+            line-height: 2;
+        }
+
+        /* ==========================================================================
+           Header & Nav
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 1000;
+            transition: .4s;
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            letter-spacing: 0.1em;
+            flex-shrink: 0;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-btn {
+            font-size: 0.75rem !important;
+            padding: 8px 16px !important;
+            background: #fff;
+            color: #d4af37;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(255, 192, 203, 0.6) 80%, transparent 100%);
+            transform: skewX(-25deg);
+            pointer-events: none;
+            animation: gold-shine 2s infinite ease-in-out;
+        }
+
+        .header-btn:hover {
+            background: #fdf5f7;
+            color: #b08d2b;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+        }
+
+        nav li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        nav a {
+            color: #555;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+
+        nav a:hover, nav li.current a {
+            color: #d4af37;
+        }
+
+        li.has-new a {
+            position: relative;
+            display: inline-block;
+        }
+
+        li.has-new .new-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffb7b2;
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            line-height: 1;
+            white-space: nowrap;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        li.has-new .new-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
+            transform: skewX(-25deg);
+            pointer-events: none;
+            animation: gold-shine 3s infinite ease-in-out;
+        }
+
+        @keyframes gold-shine {
+            0% { left: -100%; opacity: 0; }
+            5% { opacity: 1; }
+            20% { left: 200%; opacity: 0; }
+            100% { left: 200%; opacity: 0; }
+        }
+
+        /* ==========================================================================
+           Petal Animation (Cherry Blossoms)
+           ========================================================================== */
+        #petal-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 15; /* Above background, below header */
+        }
+
+        .petal {
+            position: absolute;
+            top: -30px;
+            background-color: #ffc0cb; /* Pink */
+            border-radius: 150% 0 150% 0; /* Petal shape */
+            opacity: 0.8;
+            pointer-events: none;
+            animation-name: fall, sway, rotate;
+            animation-timing-function: linear, ease-in-out, ease-in-out;
+            animation-iteration-count: infinite, infinite, infinite;
+        }
+
+        @keyframes fall {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+
+        @keyframes sway {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(25px); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ==========================================================================
+           Concept Page Specific Styles
+           ========================================================================== */
+
+        /* Page Hero */
+        .page-hero {
+            height: 60vh;
+            min-height: 400px;
+            /* Updated Hero Image */
+            background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: 80px; /* Header height */
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .page-hero h1 {
+            color: #fff;
+            font-size: 3rem;
+            letter-spacing: 0.2em;
+            position: relative;
+            z-index: 10;
+            font-weight: 500;
+        }
+
+        /* Intro Section */
+        .concept-intro {
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .concept-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+            background: none;
+            -webkit-text-fill-color: initial;
+            text-shadow: none;
+        }
+
+        .intro-lead {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #d4af37;
+            font-weight: 500;
+        }
+
+        /* Value Sections */
+        .value-section {
+            padding: 80px 0;
+        }
+
+        .value-block {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        .value-block:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .value-content {
+            flex: 1;
+        }
+
+        .value-image {
+            flex: 1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            height: 400px; /* Fixed height for consistency */
+        }
+
+        .value-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .value-block:hover .value-image img {
+            transform: scale(1.05);
+        }
+
+        .value-num {
+            font-size: 4rem;
+            color: #f8c8dc;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 10px;
+            font-family: serif;
+        }
+
+        .value-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .value-desc {
+            font-size: 1rem;
+            color: #666;
+            text-align: justify;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background-color: #ffb7b2;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            border-radius: 4px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(255, 183, 178, 0.4);
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            color: #ffb7b2;
+            border: 1px solid #ffb7b2;
+            box-shadow: 0 10px 20px rgba(255, 183, 178, 0.3);
+        }
+
+        /* ==========================================================================
+           Footer
+           ========================================================================== */
+        .footerWrap {
+            background-color: #fff; /* Very light pink/white */
+            color: #4a4a4a;
+            padding: 60px 0 20px;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .sellerWrap {
+            width: 400px;
+            max-width: 100%;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+
+        .sellerWrap h2 {
+            color: #4a4a4a;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            margin-bottom: 15px;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            -webkit-text-fill-color: unset;
+        }
+
+        .sellerInfomation_wrap {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+
+        .sellerInfomation_row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .sellerInfomation_inner {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .sellerInfomation_inner h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .sellerInfomation_inner p {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .sellerInfomation_inner:last-of-type h3 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .phone-icon-svg {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .smallWrap {
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
+
+        .smallWrap small {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: #999;
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .sellerInfomation_row { justify-content: center; }
+            .sellerInfomation_inner { flex: 1 1 100%; text-align: center; margin-bottom: 30px; }
+            .sellerInfomation_inner p { text-align: center; }
+            .header-buttons { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .value-block, .value-block:nth-child(even) { flex-direction: column; gap: 30px; }
+            .value-image, .value-content { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">LUMINA COURT</a>
+
+            <div class="header-actions">
+                <nav>
+                    <ul>
+                        <li class="current"><a href="concept.html">CONCEPT</a></li>
+                        <li><a href="index.html#features">FEATURES</a></li>
+                        <li class="has-new">
+                            <a href="index.html#plan">
+                                <span class="new-badge">new</span>
+                                PLAN
+                            </a>
+                        </li>
+                        <li><a href="index.html#contact">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="header-buttons">
+                    <a href="#" class="btn header-btn hover-lift">資料請求</a>
+                    <a href="#" class="btn header-btn hover-lift">来場予約</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Petal Container -->
+    <div id="petal-container"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <h1 class="fade-up">CONCEPT</h1>
+        </section>
+
+        <!-- Intro -->
+        <section class="concept-intro container fade-up">
+            <div class="text-center m_botom_60">
+                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" alt="Intro" style="max-width: 800px; width:100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);" onerror="this.src='https://placehold.co/800x400/f8c8dc/fff?text=Intro+Image'">
+            </div>
+            <p class="intro-lead">光と風の特等席。<br>The Very Important Place</p>
+            <p>
+                都市の喧騒を離れ、洗練された静寂に包まれる場所。<br>
+                LUMINA COURTが目指したのは、<br>
+                住む人の感性に響く、美しく心地よい邸宅です。<br>
+                ここは、あなただけの特別な時間が流れる<br>
+                人生の「特等席」となります。
+            </p>
+        </section>
+
+        <!-- Values -->
+        <section class="value-section container">
+
+            <!-- Value 1 -->
+            <div class="value-block fade-up">
+                <div class="value-content">
+                    <div class="value-num">01</div>
+                    <h3 class="value-title">駅前立地という<br>圧倒的な利便性</h3>
+                    <p class="value-desc">
+                        「和泉府中」駅史上、最も駅に近い立地。
+                        都市機能と自然が調和するこの場所は、まさに街のランドマーク。
+                        毎日の通勤や通学はもちろん、週末のショッピングやレジャーも思いのまま。
+                        時間を有効に使い、人生をより豊かに彩るロケーションです。
+                    </p>
+                </div>
+                <div class="value-image">
+                    <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=2000&auto=format&fit=crop" alt="Location" onerror="this.src='https://placehold.co/600x400/eee/333?text=Station+Front'">
+                </div>
+            </div>
+
+            <!-- Value 2 -->
+            <div class="value-block fade-up">
+                <div class="value-content">
+                    <div class="value-num">02</div>
+                    <h3 class="value-title">商業施設と直結する<br>スムーズな動線</h3>
+                    <p class="value-desc">
+                        エントランスを出てすぐ、ペデストリアンデッキを通じて商業施設へ直結。
+                        雨の日も傘をささずにショッピングを楽しめます。
+                        日々の買い物も、ちょっとした息抜きも、すべてが生活の一部としてスムーズにつながります。
+                    </p>
+                </div>
+                <div class="value-image">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop" alt="Access" onerror="this.src='https://placehold.co/600x400/eee/333?text=Direct+Access'">
+                </div>
+            </div>
+
+            <!-- Value 3 -->
+            <div class="value-block fade-up">
+                <div class="value-content">
+                    <div class="value-num">03</div>
+                    <h3 class="value-title">全邸南向きの<br>陽光あふれる住空間</h3>
+                    <p class="value-desc">
+                        すべての住戸が南向きに配置され、一日中明るい自然光が降り注ぎます。
+                        ワイドスパン設計による開放的なリビングは、風通しも良く、四季折々の心地よさを感じられます。
+                        光と風に包まれた、健康的で安らぎのある暮らしを実現します。
+                    </p>
+                </div>
+                <div class="value-image">
+                    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=2000&auto=format&fit=crop" alt="Sunlight" onerror="this.src='https://placehold.co/600x400/eee/333?text=Sunny+Room'">
+                </div>
+            </div>
+
+            <!-- Value 4 -->
+            <div class="value-block fade-up">
+                <div class="value-content">
+                    <div class="value-num">04</div>
+                    <h3 class="value-title">環境と家計に優しい<br>ZEH-M Oriented</h3>
+                    <p class="value-desc">
+                        断熱性能を高め、高効率な設備システムを導入することで、省エネルギーを実現。
+                        「ZEH-M Oriented」の認定を取得予定です。
+                        快適で安心な未来の暮らしを提供します。
+                    </p>
+                </div>
+                <div class="value-image">
+                    <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=2000&auto=format&fit=crop" alt="Nature" onerror="this.src='https://placehold.co/600x400/eee/333?text=Eco+Friendly'">
+                </div>
+            </div>
+
+            <div class="text-center m_botom_100 fade-up">
+                <a href="index.html#plan" class="btn">プランを見る</a>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div class="footerWrap">
+        <footer>
+            <div class="sellerWrap fade-up">
+                <h2>事業主・売主</h2>
+                <p>
+                    <img src="img/logo.svg">
+                </p>
+            </div>
+            <div class="sellerInfomation_wrap fade-up">
+                <div class="sellerInfomation_row">
+                    <div class="sellerInfomation_inner">
+                        <h3>マンション事業部 北九州支店</h3>
+                        <p>〒802-0077<br>
+                        北九州市小倉北区馬借2丁目6番6号 <br class="under1400">第一中央ビル4F<br>
+                        TEL 093-511-8855／FAX 093-511-8858</p>
+                    </div>
+                    <div class="sellerInfomation_inner">
+                        <h3>［ 福岡証券取引所上場 ］</h3>
+                        <p>宅地建物取引業／国土交通大臣（14）第1786号<br>
+                        （公社）福岡県宅地建物取引業協会会員 <br class="under1400">（一社）九州住宅産業協会会員<br>
+                        （一社）九州不動産公正取引協議会加盟</p>
+                    </div>
+                    <div class="sellerInfomation_inner">
+                        <h3>お問い合わせはこちら</h3>
+                        <p>
+                            <a href="tel:0120798855" style="display:flex; align-items:center;">
+                                <img src="img/tell.svg" alt="0120-798-855">
+                            </a>
+                        </p>
+                        <p>営業時間／10：00〜17：00（定休日なし）</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="smallWrap">
+            <small>&copy;2025 DAIICHI KOUTSU SANGYO Co.,Ltd. <br class="under450">All Right Reserved.</small>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            /*
+             * Intersection Observer for Fade-up
+             */
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.fade-up');
+            animatedElements.forEach(el => observer.observe(el));
+
+            /*
+             * Petal Animation Logic (Cherry Blossoms) - Copied from index.html
+             */
+            const petalContainer = document.getElementById('petal-container');
+            const petalCount = 40;
+
+            if (petalContainer) {
+                for (let i = 0; i < petalCount; i++) {
+                    createPetal();
+                }
+            }
+
+            function createPetal() {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+
+                // Randomize properties
+                const size = Math.random() * 10 + 10 + 'px'; // Larger for petals
+                const left = Math.random() * 100 + '%';
+                const duration = Math.random() * 10 + 8 + 's';
+                const delay = Math.random() * 5 + 's';
+                const swayDuration = Math.random() * 3 + 2 + 's';
+                const rotateDuration = Math.random() * 5 + 3 + 's';
+
+                petal.style.width = size;
+                petal.style.height = size;
+                petal.style.left = left;
+
+                // Combine animations
+                // Name: fall, sway, rotate
+                // Duration: duration, swayDuration, rotateDuration
+                petal.style.animationDuration = `${duration}, ${swayDuration}, ${rotateDuration}`;
+                petal.style.animationDelay = `${delay}, 0s, 0s`;
+
+                petalContainer.appendChild(petal);
+            }
+        });
+    </script>
+</body>
+</html>
