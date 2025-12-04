@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMINA COURT | 新しい分譲マンション</title>
+    <!-- Google Fonts: Zen Old Mincho for Luxury Feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        @charset "UTF-8";
+
+        /* ==========================================================================
+           Reset & Base Styles
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        body {
+            font-family: "Zen Old Mincho", serif;
+            background-color: #0a0a0a;
+            background-image: radial-gradient(ellipse at top, #2a2a2a 0%, #0a0a0a 70%);
+            background-attachment: fixed;
+            color: #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        img, video {
+            width: 100%;
+            vertical-align: bottom;
+        }
+
+        ul, li {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .m_botom_20 {
+            margin-bottom: 20px;
+        }
+
+        .under1400, .under450 {
+            display: none;
+        }
+
+        @media (max-width: 1400px) {
+            .under1400 { display: inline; }
+        }
+        @media (max-width: 450px) {
+            .under450 { display: inline; }
+        }
+
+        /* ==========================================================================
+           Typography & Shared Styles
+           ========================================================================== */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+            
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: #ccc;
+            line-height: 2;
+        }
+
+        /* ==========================================================================
+           Header & Nav
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.6));
+            z-index: 1000;
+            transition: .4s;
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 0.1em;
+            flex-shrink: 0;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-btn {
+            font-size: 0.75rem !important;
+            padding: 8px 16px !important;
+            border: 1px solid #d4af37;
+            background: rgba(0,0,0,0.5);
+            color: #d4af37;
+            
+            /* Updated for Shine Effect */
+            position: relative;
+            overflow: hidden; /* Contains the shine */
+        }
+
+        /* Shine Effect Element for Button */
+        .header-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            /* Goldish transparent gradient */
+            background: linear-gradient(to right, transparent 0%, rgba(212, 175, 55, 0.6) 80%, transparent 100%);
+            transform: skewX(-25deg);
+            pointer-events: none;
+            animation: gold-shine 2s infinite ease-in-out;
+        }
+
+        .header-btn:hover {
+            background: #d4af37;
+            color: #000;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+        }
+
+        nav li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        nav a {
+            color: #fff;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* 1. 基準を li ではなく a タグにする */
+        li.has-new a {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* 2. バッジの位置指定 */
+        li.has-new .new-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            
+            background-color: #d4af37;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            line-height: 1;
+            white-space: nowrap;
+            pointer-events: none;
+            
+            /* Updated for Shine Effect */
+            overflow: hidden;
+        }
+
+        /* Shine Effect Element for Badge */
+        li.has-new .new-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            /* White/Bright Gold shine for contrast on gold background */
+            background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
+            transform: skewX(-25deg);
+            pointer-events: none;
+            animation: gold-shine 3s infinite ease-in-out;
+        }
+
+        /* Animation: Shine moving across */
+        @keyframes gold-shine {
+            0% {
+                left: -100%;
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            20% {
+                left: 200%; /* Move quickly across */
+                opacity: 0;
+            }
+            100% {
+                left: 200%;
+                opacity: 0; /* Wait for next cycle */
+            }
+        }
+
+        /* ==========================================================================
+           Hero Section
+           ========================================================================== */
+        #hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 20; 
+            background-color: #000;
+        }
+
+        .video-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-slider img, 
+        .video-slider video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 2s ease-in-out, transform 6s linear;
+            transform: scale(1.1);
+        }
+
+        .video-slider img.active,
+        .video-slider video.active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 2s ease-in-out, transform 6s linear;
+        }
+
+        .video-slider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            letter-spacing: 0.2em;
+            font-weight: 500;
+        }
+
+        .hero-text p {
+            color: #fff;
+            font-size: 1.2rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            letter-spacing: 0.1em;
+        }
+
+        /* ==========================================================================
+           Snow Animation (White Circles)
+           ========================================================================== */
+        #snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -30px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            opacity: 0.8;
+            pointer-events: none;
+            animation-name: fall, sway;
+            animation-timing-function: linear, ease-in-out;
+            animation-iteration-count: infinite, infinite;
+        }
+
+        @keyframes fall {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+
+        @keyframes sway {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(20px); }
+            100% { transform: translateX(0); }
+        }
+
+        /* ==========================================================================
+           Concept Section
+           ========================================================================== */
+        .concept-content {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .concept-content .img-wrapper {
+            width: 50%;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .concept-content img {
+            transition: transform 1.5s ease;
+        }
+
+        .concept-content:hover img {
+            transform: scale(1.05);
+        }
+
+        .concept-text {
+            width: 50%;
+        }
+
+        .concept-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            color: #fff;
+            border-left: 3px solid #d4af37;
+            padding-left: 20px;
+        }
+
+        .concept-text p {
+            text-align: left;
+            color: #aaa;
+        }
+
+        /* ==========================================================================
+           Features Section & Trapezoid Curtain Animation
+           ========================================================================== */
+        #features {
+            background-image: url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Curtain Styles */
+        .curtain-left, .curtain-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120%; /* Wide enough cover */
+            background: rgba(10, 10, 10, 0.4); 
+            z-index: 10;
+            transition: transform 2.0s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .curtain-left {
+            left: 0;
+            /* Angled cut on the right side */
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+            transform: translateX(-100%); /* Start completely left */
+        }
+
+        .curtain-right {
+            right: 0;
+            /* Angled cut on the left side */
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+            transform: translateX(100%); /* Start completely right */
+        }
+
+        /* State: Active (Closing/Moving across screen) */
+        /* Both move to 0, covering the screen and remaining there */
+        #features.animate-active .curtain-left {
+            transform: translateX(0);
+        }
+
+        #features.animate-active .curtain-right {
+            transform: translateX(0);
+        }
+
+        #features .container {
+            position: relative;
+            z-index: 30; /* Ensure content is above the curtains (z-index 10) */
+        }
+
+        /* Content fades up AFTER animation finishes */
+        #features .fade-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.5s ease, transform 1.5s ease;
+        }
+
+        #features.animate-finished .fade-up {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #features.animate-finished .feature-card {
+            transition-delay: 0.2s;
+        }
+        #features.animate-finished .feature-card:nth-child(2) { transition-delay: 0.4s; }
+        #features.animate-finished .feature-card:nth-child(3) { transition-delay: 0.6s; }
+
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .feature-card {
+            background-color: rgba(30, 30, 30, 0.6);
+            padding: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: #d4af37;
+        }
+
+        .feature-card .img-wrapper {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .feature-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin: 20px 20px 10px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            padding: 0 20px 20px;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        /* ==========================================================================
+           Plan Section
+           ========================================================================== */
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        }
+
+        .plan-card {
+            background-color: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            color: #1a1a1a;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            /* New: Ensure card is relative to stack within container context */
+            position: relative;
+            /* Updated: Z-Index increased to be above snow (z:10) */
+            z-index: 30;
+        }
+
+        .plan-card .img-wrapper {
+            padding: 40px;
+            background: #f9f9f9;
+            display: flex;
+            justify-content: center;
+        }
+
+        .plan-card img {
+            mix-blend-mode: multiply;
+            max-width: 80%;
+            height: auto;
+        }
+
+        .plan-info {
+            padding: 30px;
+            background-color: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        .plan-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .plan-info p {
+            text-align: left;
+            color: #555;
+            border-bottom: 1px solid #eee;
+            padding: 8px 0;
+        }
+
+        /* New: Explicit Z-Index for Plan Container to be above Snow (z:10) */
+        #plan .container {
+            position: relative;
+            z-index: 20;
+        }
+
+        /* ==========================================================================
+           Contact Section
+           ========================================================================== */
+        #contact {
+            background-image: url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            text-align: center;
+        }
+        
+        #contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.9);
+            z-index: 1;
+        }
+
+        #contact .container {
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background-color: #d4af37;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::after {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            color: #d4af37;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* ==========================================================================
+           Footer
+           ========================================================================== */
+        .footerWrap {
+            background-color: #f5f5f5;
+            color: #231815;
+            padding: 60px 0 20px;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .sellerWrap {
+            width: 400px;
+            max-width: 100%;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+
+        .sellerWrap h2 {
+            color: #231815;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            margin-bottom: 15px;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            -webkit-text-fill-color: unset;
+            color: #231815;
+        }
+
+        .sellerInfomation_wrap {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+
+        .sellerInfomation_row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .sellerInfomation_inner {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .sellerInfomation_inner h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #231815;
+        }
+
+        .sellerInfomation_inner p {
+            font-size: 0.85rem;
+            color: #555;
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .sellerInfomation_inner:last-of-type h3 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+        
+        .phone-icon-svg {
+            width: 24px;
+            height: 24px;
+            fill: #231815;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .smallWrap {
+            text-align: center;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .smallWrap small {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: #888;
+        }
+
+        /* ==========================================================================
+           Animations (General)
+           ========================================================================== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-up-stagger > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 10s cubic-bezier(0.165, 0.84, 0.44, 1), transform 10s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .fade-up-stagger.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-up-stagger.visible > *:nth-child(1) { transition-delay: 0.1s; }
+        .fade-up-stagger.visible > *:nth-child(2) { transition-delay: 0.3s; }
+        .fade-up-stagger.visible > *:nth-child(3) { transition-delay: 0.5s; }
+
+        @media (max-width: 1024px) {
+            .sellerInfomation_row {
+                justify-content: center;
+            }
+            .sellerInfomation_inner {
+                flex: 1 1 100%;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .sellerInfomation_inner p {
+                text-align: center;
+            }
+            h2 { font-size: 2.2rem; }
+            .hero-text h1 { font-size: 2.5rem; }
+            
+            .header-buttons { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid, .plan-grid {
+                grid-template-columns: 1fr;
+            }
+            .concept-content {
+                flex-direction: column;
+            }
+            .concept-content .img-wrapper, .concept-text {
+                width: 100%;
+            }
+
+            #features, #contact {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">LUMINA COURT</a>
+            
+            <div class="header-actions">
+                <nav>
+                    <ul>
+                        <li><a href="#concept">CONCEPT</a></li>
+                        <li><a href="#features">FEATURES</a></li>
+                        <li class="has-new">
+                            <a href="#plan">
+                                <span class="new-badge">new</span>
+                                PLAN
+                            </a>
+                        </li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="header-buttons">
+                    <a href="#" class="btn header-btn hover-lift">資料請求</a>
+                    <a href="#" class="btn header-btn hover-lift">来場予約</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Snow Container -->
+    <div id="snow-container"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="video-slider">
+                <!-- Video Slide (Added) -->
+                <video src="img\video3.mp4" muted playsinline class="active"></video>
+
+                <!-- Image Slide -->
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Evening View">
+                <video src="img\video1.mp4" muted playsinline></video>
+            </div>
+            <div class="hero-text fade-up-stagger">
+                <h1>光と、風と、暮らす。</h1>
+                <p>都心にありながら、自然のやすらぎを感じるレジデンス。</p>
+            </div>
+        </section>
+<img src="img/2025-12-04 113659.png" style="width:100%;">
+        <!-- Concept Section -->
+        <section id="concept" class="container m_botom_20">
+            <h2 class="fade-up">CONCEPT</h2>
+            <div class="concept-content fade-up">
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?q=80&w=1974&auto=format&fit=crop" alt="コンセプト画像">
+                </div>
+                <div class="concept-text">
+                    <h3>都市の喧騒を忘れさせる、<br>静寂と洗練のプライベート空間。</h3>
+                    <p>
+                        LUMINA COURTは、ただの住まいでなく、日々の生活にインスピレーションを与えるアートピースです。
+                        ミニマルながらも温かみのあるデザイン、厳選された自然素材、そして窓から差し込む豊かな光が、住む人の心を満たします。
+                        一枚の絵画のように美しいこの場所で、あなただけの特別な時間をお過ごしください。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section with Trapezoid Curtain Animation -->
+        <section id="features">
+            <!-- Trapezoid Curtains (Semi-transparent) -->
+            <div class="curtain-left"></div>
+            <div class="curtain-right"></div>
+
+            <div class="container m_botom_20">
+                <h2 class="fade-up">FEATURES</h2>
+                <div class="features-grid">
+                    <a href="#" class="feature-card fade-up" data-delay="0">
+                        <div class="img-wrapper">
+                            <img src="https://wellith.jp/nishinomiyakotoen177/asset/images/design/rev/img_GrandApproach_pc.jpg" alt="デザイン">
+                        </div>
+                        <h3>洗練されたデザイン</h3>
+                        <p>光を最大限に取り込む大きな窓と、無駄を削ぎ落としたミニマルな内装が、開放的で心地よい空間を演出します。</p>
+                    </a>
+                    <a href="#" class="feature-card fade-up" data-delay="100">
+                        <div class="img-wrapper">
+                            <img src="https://wellith.jp/nishinomiyakotoen177/asset/images/location/img_location_main_pc.jpg" alt="ロケーション">
+                        </div>
+                        <h3>都心へのアクセス</h3>
+                        <p>最寄り駅から徒歩5分。主要なビジネス街や商業施設へもスムーズにアクセスでき、日々の通勤や週末のお出かけにも便利です。</p>
+                    </a>
+                    <a href="#" class="feature-card fade-up" data-delay="200">
+                        <div class="img-wrapper">
+                            <img src="https://wellith.jp/nishinomiyakotoen177/asset/images/quality/eq_kit05.jpg" alt="設備">
+                        </div>
+                        <h3>最新の設備</h3>
+                        <p>スマートホーム技術を導入し、セキュリティや空調、照明などを一括で管理。快適で安心な未来の暮らしを提供します。</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plan Section -->
+        <section id="plan" class="container m_botom_20">
+            <h2 class="fade-up">PLAN</h2>
+            <div class="plan-grid">
+                <div class="plan-card fade-up" data-delay="0">
+                    <div class="img-wrapper">
+                        <img src="https://gp-takami-tower.com/images/planB/drawingB_base_0905.svg" alt="1LDK" onerror="this.src='https://placehold.co/400x300/f5f5f5/ccc?text=1LDK+Plan'">
+                    </div>
+                    <div class="plan-info">
+                        <h3>1LDK</h3>
+                        <p>専有面積: 45.00㎡</p>
+                        <p>バルコニー面積: 10.00㎡</p>
+                    </div>
+                </div>
+                <div class="plan-card fade-up" data-delay="200">
+                    <div class="img-wrapper">
+                         <img src="https://gp-takami-tower.com/images/planB/drawingB_base_0905.svg" alt="2LDK" onerror="this.src='https://placehold.co/400x300/f5f5f5/ccc?text=2LDK+Plan'">
+                    </div>
+                    <div class="plan-info">
+                        <h3>2LDK</h3>
+                        <p>専有面積: 65.00㎡</p>
+                        <p>バルコニー面積: 15.00㎡</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container m_botom_20 fade-up">
+                <h2>CONTACT</h2>
+                <p>物件に関するご質問、資料請求、来場予約など、お気軽にお問い合わせください。</p>
+                <div class="contact-buttons">
+                    <a href="#" class="btn hover-lift">資料請求</a>
+                    <a href="#" class="btn hover-lift">来場予約</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div class="footerWrap">
+        <footer>
+            <div class="sellerWrap fade-up">
+                <h2>事業主・売主</h2>
+                <p>
+                    <img src="img/logo.svg">
+                </p>
+            </div>
+            <div class="sellerInfomation_wrap fade-up">
+                <div class="sellerInfomation_row">
+                    <div class="sellerInfomation_inner">
+                        <h3>マンション事業部 北九州支店</h3>
+                        <p>〒802-0077<br>
+                        北九州市小倉北区馬借2丁目6番6号 <br class="under1400">第一中央ビル4F<br>
+                        TEL 093-511-8855／FAX 093-511-8858</p>
+                    </div>
+                    <div class="sellerInfomation_inner">
+                        <h3>［ 福岡証券取引所上場 ］</h3>
+                        <p>宅地建物取引業／国土交通大臣（14）第1786号<br>
+                        （公社）福岡県宅地建物取引業協会会員 <br class="under1400">（一社）九州住宅産業協会会員<br>
+                        （一社）九州不動産公正取引協議会加盟</p>
+                    </div>
+                    <div class="sellerInfomation_inner">
+                        <h3>お問い合わせはこちら</h3>
+                        <p>
+                            <a href="tel:0120798855" style="display:flex; align-items:center;">
+                                <img src="img/tell.svg" alt="0120-798-855">
+                            </a>
+                        </p>
+                        <p>営業時間／10：00〜17：00（定休日なし）</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="smallWrap">
+            <small>&copy;2025 DAIICHI KOUTSU SANGYO Co.,Ltd. <br class="under450">All Right Reserved.</small>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            /*
+             * Slider Logic
+             */
+// 動画と画像をすべて取得
+    const slides = document.querySelectorAll('.video-slider video, .video-slider img');
+    let currentIndex = 0;
+    const imageDisplayTime = 5000; // 画像を表示しておく時間（ミリ秒）
+
+    // スライドが1枚以上ある場合のみ実行
+    if (slides.length > 0) {
+        // 最初のスライドを開始
+        playSlide(currentIndex);
+    }
+
+    function playSlide(index) {
+        const slide = slides[index];
+        
+        // すべてのスライドから active を外して、現在のみ active に
+        slides.forEach(s => s.classList.remove('active'));
+        slide.classList.add('active');
+
+        // --- A. 動画の場合 ---
+        if (slide.tagName === 'VIDEO') {
+            slide.currentTime = 0; // 最初から
+            slide.play().catch(e => console.log('Auto-play error:', e));
+
+            // 「再生が終わったら (onended)」次のスライドへ進む予約をする
+            slide.onended = function() {
+                nextSlide();
+            };
+
+        // --- B. 画像の場合 ---
+        } else {
+            // 画像なら指定時間 (5秒) 待ってから次へ
+            setTimeout(function() {
+                // 画像表示中に別のスライドに変わっていないか確認（連打防止）
+                if(slide.classList.contains('active')){
+                    nextSlide();
+                }
+            }, imageDisplayTime);
+        }
+    }
+
+    function nextSlide() {
+        // 前の動画のイベントを削除（重要：これをしないと裏で動き続ける）
+        const currentSlide = slides[currentIndex];
+        if (currentSlide.tagName === 'VIDEO') {
+            currentSlide.onended = null; 
+            currentSlide.pause();
+        }
+
+        // 次の番号へ（最後までいったら0に戻る）
+        currentIndex = (currentIndex + 1) % slides.length;
+        
+        // 次のスライドを再生
+        playSlide(currentIndex);
+    }
+
+            /*
+             * Intersection Observer for General Fade-up
+             */
+            const observerOptions = {
+                threshold: 0.15, 
+                rootMargin: "0px 0px -50px 0px" 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // Skip features section animation here, handled separately
+                    if (entry.target.closest('#features')) return;
+
+                    if (entry.isIntersecting) {
+                        const delay = entry.target.dataset.delay;
+                        if (delay) {
+                            entry.target.style.transitionDelay = `${delay}ms`;
+                        }
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.fade-up, .fade-up-stagger');
+            animatedElements.forEach(el => observer.observe(el));
+
+            /*
+             * Features Section Curtain Animation
+             * Triggers when the top of the features section hits 30% from top of screen.
+             */
+            const featuresSection = document.getElementById('features');
+            
+            const featuresObserverOptions = {
+                root: null,
+                threshold: 0,
+                // Trigger line is 30% from top of viewport
+                rootMargin: "-35% 0px -35% 0px" 
+            };
+
+            const featuresObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Start curtain animation
+                        featuresSection.classList.add('animate-active');
+                        
+                        // Wait for curtain to close, then fade to semi-transparent and show content
+                        // Adjusted timeout to show content faster (1.2s instead of 2.0s)
+                        setTimeout(() => {
+                            featuresSection.classList.add('animate-finished');
+                        }, 1200); 
+
+                        featuresObserver.unobserve(entry.target);
+                    }
+                });
+            }, featuresObserverOptions);
+
+            if (featuresSection) {
+                featuresObserver.observe(featuresSection);
+            }
+
+            /*
+             * Snow Animation Logic
+             * Generates snowflakes covering the screen
+             */
+            const snowContainer = document.getElementById('snow-container');
+            const snowflakeCount = 60; 
+
+            if (snowContainer) {
+                for (let i = 0; i < snowflakeCount; i++) {
+                    createSnowflake();
+                }
+            }
+
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                
+                // Randomize properties
+                const size = Math.random() * 5 + 2 + 'px'; 
+                const left = Math.random() * 100 + '%';
+                const duration = Math.random() * 15 + 10 + 's'; 
+                const delay = Math.random() * 5 + 's';
+                const swayDuration = Math.random() * 3 + 2 + 's';
+
+                snowflake.style.width = size;
+                snowflake.style.height = size;
+                snowflake.style.left = left;
+                snowflake.style.animationDuration = `${duration}, ${swayDuration}`;
+                snowflake.style.animationDelay = `${delay}, 0s`;
+                
+                snowContainer.appendChild(snowflake);
+            }
+        });
+    </script>
+</body>
+</html>
